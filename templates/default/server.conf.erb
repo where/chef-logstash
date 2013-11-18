@@ -23,8 +23,8 @@ output {
   <% if @enable_embedded_es -%>
   elasticsearch { 
     embedded => true
-<% @elasticsearch.each_key do |key| -%>
-    <%= key %> => "<%= @elasticsearch[key] %>"
+<% node['logstash']['server']['elasticsearch'].each_key do |key| -%>
+    <%= key %> => "<%= node['logstash']['server']['elasticsearch'][key] %>"
 <% end -%>
   }
   
